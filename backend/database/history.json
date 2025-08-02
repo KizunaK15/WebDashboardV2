@@ -1,0 +1,9 @@
+[
+  {
+    "patientId": "Pasien-01",
+    "avgBpm": 85,
+    "avgSpo2": 97,
+    "avgEmg": 160,
+    "timestamp": "2025-07-12T08:38:39.507Z"
+  }
+]

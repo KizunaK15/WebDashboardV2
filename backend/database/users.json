@@ -1,0 +1,20 @@
+{
+  "terapis@prime.com": {
+    "password": "password123",
+    "role": "therapist"
+  },
+  "prima@prime.com": {
+    "password": "pasien456",
+    "role": "patient",
+    "patientId": "Pasien-01",
+    "name": "Prima",
+    "phone": "whatsapp:+6281378642405"
+  },
+  "ilyas@prime.com": {
+    "password": "pasien789",
+    "role": "patient",
+    "patientId": "Pasien-02",
+    "name": "Ilyas",
+    "phone": "whatsapp:+6282135419322" 
+  }
+}
