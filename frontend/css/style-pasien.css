@@ -1,0 +1,56 @@
+/* frontend/css/style-pasien.css */
+
+/* Gaya dasar untuk body */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f9fc; /* Warna latar yang lebih lembut */
+}
+
+/* Efek transisi halus untuk link di sidebar */
+.sidebar-link {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Gaya untuk kartu ringkasan data */
+.summary-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+}
+
+/* Animasi untuk kartu agar muncul secara halus */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Kelas untuk menunda animasi kartu */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+
+/* Gaya untuk daftar jadwal */
+.schedule-item {
+    transition: background-color 0.2s ease-in-out;
+}
+.schedule-item:hover {
+    background-color: #e0f2fe; /* bg-sky-100 */
+}
+
+/* [BARU] Gaya untuk tombol utama (Call to Action) */
+.cta-button {
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}

@@ -1,0 +1,47 @@
+/* frontend/css/style-terapis.css */
+
+/* Gaya dasar untuk body */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc; /* Sedikit lebih abu-abu dari bg-gray-100 */
+}
+
+/* Animasi untuk kartu ringkasan agar muncul secara halus */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Terapkan animasi ke kartu ringkasan */
+.summary-card {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* [BARU] Kelas untuk menunda animasi kartu */
+.summary-card.delay-1 {
+    animation-delay: 0.1s;
+}
+.summary-card.delay-2 {
+    animation-delay: 0.2s;
+}
+
+/* Efek transisi halus untuk link di sidebar */
+.sidebar-link {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Efek hover yang lebih menarik untuk daftar di dashboard */
+.info-list-item {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.info-list-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}

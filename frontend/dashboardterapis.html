@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Terapis - PRIME Care</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style-terapis.css">
+</head>
+<body>
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 flex-shrink-0 bg-white border-r border-gray-200 flex flex-col">
+            <div class="h-16 flex items-center justify-center border-b border-gray-200">
+                <h1 class="text-2xl font-bold text-blue-600">PRIME Care</h1>
+            </div>
+            <nav class="flex-1 px-4 py-6 space-y-2">
+                <a href="dashboardterapis.html" class="sidebar-link flex items-center px-4 py-2.5 text-sm font-medium text-white bg-blue-600 rounded-lg">Dashboard</a>
+                <a href="pasienlist.html" class="sidebar-link flex items-center px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg">Pasien</a>
+                <a href="jadwalterapis.html" class="sidebar-link flex items-center px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg">Jadwal Terapi</a>
+            </nav>
+            <!-- [PEMBARUAN] Menambahkan link Ganti Password -->
+            <div class="mt-auto p-4 border-t border-gray-200 space-y-2">
+                <a href="gantipassword.html" class="sidebar-link flex items-center px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg">Ganti Password</a>
+                <a href="iot_login_page.html" class="sidebar-link flex items-center px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg">Logout</a>
+            </div>
+        </aside>
+
+        <!-- [LENGKAP] Konten Utama -->
+        <main class="flex-1 overflow-y-auto p-8">
+            <header class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800">Dashboard Terapis</h2>
+                    <p class="text-gray-500 mt-1">Ringkasan aktivitas dan jadwal hari ini.</p>
+                </div>
+            </header>
+
+            <!-- Area Notifikasi Jadwal -->
+            <div id="notification-banner" class="hidden mb-8 p-4 bg-blue-100 border-l-4 border-blue-500 rounded-r-lg">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <svg class="h-5 w-5 text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <p id="notification-text" class="text-sm text-blue-700"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ringkasan Statistik -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-xl shadow-md summary-card">
+                    <p class="text-gray-500 text-sm">Total Pasien</p>
+                    <p id="total-patients" class="text-3xl font-bold text-blue-600 mt-2">--</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md summary-card delay-1">
+                    <p class="text-gray-500 text-sm">Jadwal Hari Ini</p>
+                    <p id="today-schedules" class="text-3xl font-bold text-green-600 mt-2">--</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md summary-card delay-2">
+                    <p class="text-gray-500 text-sm">Total Sesi Bulan Ini</p>
+                    <p id="total-sessions" class="text-3xl font-bold text-purple-600 mt-2">--</p>
+                </div>
+            </div>
+
+            <!-- Daftar Pasien Terbaru dan Jadwal Mendatang -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800">Pasien Terbaru</h3>
+                        <a href="pasienlist.html" class="text-sm text-blue-600 hover:underline">Lihat Semua</a>
+                    </div>
+                    <div id="recent-patients-list" class="space-y-4"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800">Jadwal Mendatang</h3>
+                        <a href="jadwalterapis.html" class="text-sm text-blue-600 hover:underline">Kelola Jadwal</a>
+                    </div>
+                    <div id="upcoming-schedules-list" class="space-y-4"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Link ke file JavaScript kustom Anda -->
+    <script src="js/script-terapis.js"></script>
+</body>
+</html>

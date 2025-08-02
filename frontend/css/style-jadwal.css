@@ -1,0 +1,24 @@
+/* frontend/css/style-jadwal.css */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc;
+}
+
+.sidebar-link {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* [BARU] Gaya umum untuk tombol aksi di dalam tabel */
+.action-btn {
+    padding: 4px 10px;
+    font-size: 0.75rem; /* 12px */
+    border-radius: 9999px; /* rounded-full */
+    font-weight: 500; /* medium */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.action-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}

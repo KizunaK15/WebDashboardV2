@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIME Care - Solusi Rehabilitasi Pasca-Stroke</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- [PEMBARUAN] Link ke file CSS eksternal -->
+    <link rel="stylesheet" href="css/style-landing.css">
+</head>
+<body class="bg-sky-50 text-gray-800">
+
+    <div class="relative min-h-screen flex flex-col justify-center items-center p-8 overflow-hidden">
+        <!-- Dekorasi Latar Belakang -->
+        <!-- [PERBAIKAN] Menggunakan kelas CSS, bukan inline style -->
+        <div class="plus-bg plus-bg-1">+</div>
+        <div class="plus-bg plus-bg-2">+</div>
+        <svg class="wave-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#caeaff" fill-opacity="1" d="M0,160L48,176C96,192,192,224,288,218.7C384,213,480,171,576,144C672,117,768,107,864,128C960,149,1056,203,1152,208C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+
+        <!-- Konten Utama -->
+        <div class="container mx-auto z-10">
+            <!-- Header Navigasi -->
+            <header class="flex justify-between items-center py-6">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2v-2"></path></svg>
+                    <span class="text-2xl font-bold text-blue-600">PRIME Care</span>
+                </div>
+                <nav class="hidden md:flex space-x-8 text-gray-600 font-medium">
+                    <a href="#" class="hover:text-blue-600">Home</a>
+                    <a href="#" class="hover:text-blue-600">About Us</a>
+                    <a href="#" class="hover:text-blue-600">Features</a>
+                    <a href="#" class="hover:text-blue-600">Contacts</a>
+                    <a href="#" class="hover:text-blue-600">FAQ</a>
+                </nav>
+            </header>
+
+            <!-- Hero Section -->
+            <main class="grid md:grid-cols-2 gap-8 items-center mt-12 md:mt-16">
+                <!-- Kolom Kiri: Teks dan Tombol -->
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                        POST-STROKE GLOVE WITH INTEGRATED MONITORING
+                    </h1>
+                    <p class="mt-4 text-lg text-gray-600">
+                        Perangkat wearable revolusioner yang dirancang untuk membantu pemulihan individu pasca-stroke dengan menyediakan pemantauan kesehatan komprehensif dan dukungan rehabilitasi.
+                    </p>
+                    <a href="iot_login_page.html" class="mt-8 inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105">
+                        Lets Get Started
+                    </a>
+                </div>
+
+                <!-- Kolom Kanan: Ilustrasi -->
+                <div class="relative p-4">
+                    <img src="doctor.png" alt="Ilustrasi dokter dan pasien" class="w-full h-auto max-w-lg mx-auto rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/caeaff/4338ca?text=Ilustrasi+Terapi';">
+                </div>
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>

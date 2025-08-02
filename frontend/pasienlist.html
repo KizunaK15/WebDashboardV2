@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Pasien - PRIME Care</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style> body { font-family: 'Inter', sans-serif; } </style>
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 flex-shrink-0 bg-white border-r border-gray-200 flex flex-col">
+            <div class="h-16 flex items-center justify-center border-b border-gray-200">
+                <h1 class="text-2xl font-bold text-blue-600">PRIME Care</h1>
+            </div>
+            <nav class="flex-1 px-4 py-6 space-y-2">
+                <a href="dashboardterapis.html" class="flex items-center px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg">Dashboard</a>
+                <a href="pasienlist.html" class="flex items-center px-4 py-2.5 text-sm font-medium text-white bg-blue-600 rounded-lg">Pasien</a>
+                <a href="jadwalterapis.html" class="flex items-center px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg">Jadwal Terapi</a>
+            </nav>
+            <div class="mt-auto p-4 border-t border-gray-200">
+                <a href="iot_login_page.html" class="flex items-center px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg">Logout</a>
+            </div>
+        </aside>
+
+        <!-- Konten Utama -->
+        <main class="flex-1 overflow-y-auto p-8">
+            <header class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800">Manajemen Pasien</h2>
+                    <p class="text-gray-500 mt-1">Lihat dan kelola semua pasien terdaftar.</p>
+                </div>
+                <a href="tambahpasien.html" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+                    + Tambah Pasien Baru
+                </a>
+            </header>
+            
+            <!-- Daftar Kartu Pasien -->
+            <div id="patient-card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Kartu pasien akan diisi oleh JavaScript -->
+            </div>
+        </main>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        const container = document.getElementById('patient-card-container');
+        container.innerHTML = '<p class="text-gray-500">Memuat daftar pasien...</p>';
+
+        try {
+            const response = await fetch('http://localhost:3000/api/patients');
+            if (!response.ok) {
+                throw new Error('Gagal memuat data pasien. Pastikan server lokal Anda (node server.js) sedang berjalan.');
+            }
+            
+            const patients = await response.json();
+            container.innerHTML = ''; // Kosongkan kontainer
+
+            if (patients.length === 0) {
+                container.innerHTML = '<p class="text-gray-500">Belum ada pasien yang terdaftar.</p>';
+                return;
+            }
+
+            patients.forEach(patient => {
+                const patientName = patient.name.charAt(0).toUpperCase() + patient.name.slice(1);
+                const card = `
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex items-center space-x-4">
+                            <div class="flex-shrink-0 h-12 w-12 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 font-bold text-xl">
+                                ${patientName.charAt(0)}
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800">${patientName}</h3>
+                                <p class="text-sm text-gray-500">${patient.email}</p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-xs text-gray-400">ID Pasien</p>
+                            <p class="text-sm font-mono text-gray-600">${patient.patientId}</p>
+                        </div>
+                        <div class="mt-6">
+                            <a href="pasiendetail.html?id=${patient.patientId}&name=${patientName}" class="w-full block text-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+                                Lihat Detail & Riwayat
+                            </a>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+
+        } catch (error) {
+            container.innerHTML = `<p class="text-red-500 p-4">${error.message}</p>`;
+        }
+    });
+</script>
+</body>
+</html>
